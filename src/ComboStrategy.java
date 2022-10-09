@@ -2,8 +2,10 @@ import java.awt.*;
 import java.util.Random;
 
 public class ComboStrategy implements DrawStrategy {
+    private double width;
     private Random r;
-    public ComboStrategy(){
+    public ComboStrategy(int numStimuli, int screenArea){
+        calculateAndSetSize(numStimuli, screenArea);
         r = new Random();
     }
     @Override
@@ -11,11 +13,11 @@ public class ComboStrategy implements DrawStrategy {
         if (r.nextInt(2) == 1){
             Circle c = new Circle(p);
             c.setColor(Color.BLUE);
-            c.setRadius(10);
+            c.setRadius((int)Math.floor(width/2));
             return c;
         }
 
-        Square s = new Square(p, 20);
+        Square s = new Square(p, (int)Math.floor(width));
         s.setColor(Color.RED);
         return s;
     }
@@ -24,7 +26,7 @@ public class ComboStrategy implements DrawStrategy {
     public Shape generateDifferent(Point p) {
         Circle c = new Circle(p);
         c.setColor(Color.RED);
-        c.setRadius(10);
+        c.setRadius((int)Math.floor(width/2));
         return c;
     }
 
@@ -32,5 +34,9 @@ public class ComboStrategy implements DrawStrategy {
     @Override
     public String getDifferentName() {
         return "red circle";
+    }
+
+    public void calculateAndSetSize(int numStimuli, int screenArea){
+        width = Math.sqrt((double)screenArea/numStimuli) / 2;
     }
 }

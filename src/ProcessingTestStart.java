@@ -24,19 +24,6 @@ public class ProcessingTestStart {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DrawStrategy s = null;
-                ProcessingTestForm pt = new ProcessingTestForm();
-                switch(stimCombo.getSelectedItem().toString()){
-                    case "Shape":
-                        pt.setStrategy(new ShapeStrategy());
-                        break;
-                    case "Color":
-                        pt.setStrategy(new ColorStrategy());
-                        break;
-                    case "Combo":
-                        pt.setStrategy(new ComboStrategy());
-                }
-
                 if ((int)numSpinner.getValue() <= 0){
                     // add error popup
                     return;
@@ -45,6 +32,13 @@ public class ProcessingTestStart {
                 if (nameField.getText().length() == 0){
                     // add error popup
                     return;
+                }
+                ProcessingTestForm pt = new ProcessingTestForm();
+                int numStimuli = (int) numSpinner.getValue();
+                switch (stimCombo.getSelectedItem().toString()) {
+                    case "Shape" -> pt.setStrategy(new ShapeStrategy(numStimuli, (500 * 500)));
+                    case "Color" -> pt.setStrategy(new ColorStrategy(numStimuli, (500 * 500)));
+                    case "Combo" -> pt.setStrategy(new ComboStrategy(numStimuli, (500 * 500)));
                 }
 
                 pt.setNumStimuli((int)numSpinner.getValue());

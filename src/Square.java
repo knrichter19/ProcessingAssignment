@@ -42,9 +42,12 @@ public class Square implements Shape {
     public void paint(Graphics g){
         g.setColor(color);
         g.fillRect(getLeft(), getTop(), width, width );
+        g.setColor(Color.black);
+        g.drawRect(getLeft(), getTop(), width, width);
     }
 
     public void setColor(Color c){
         this.color = c;
     }
+
 }

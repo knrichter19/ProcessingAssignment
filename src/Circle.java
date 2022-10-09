@@ -45,6 +45,8 @@ public class Circle implements Shape {
     public void paint(Graphics g){
         g.setColor(color);
         g.fillOval(getLeft(), getTop(), radius*2, radius*2 );
+        g.setColor(Color.black);
+        g.drawOval(getLeft(), getTop(), radius*2, radius*2);
     }
 
     public boolean isInside(Point p){

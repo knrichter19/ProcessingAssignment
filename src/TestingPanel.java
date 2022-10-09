@@ -24,7 +24,7 @@ public class TestingPanel extends JPanel {
         setPreferredSize(new Dimension(width, height));
         ran = new Random();
         shapes = new ArrayList<>();
-        border = 5;
+        border = 20;
     }
 
     public void setTypeStrategy(DrawStrategy ds){
