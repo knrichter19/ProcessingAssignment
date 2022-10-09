@@ -9,12 +9,15 @@ public class Circle implements Shape {
     public Circle(Point center) {
         this.x = center.x;
         this.y = center.y;
-        radius = 5;
         color = Color.BLUE;
     }
 
     public Point getCenter() {
         return new Point((int)x, (int)y);
+    }
+
+    public void setRadius(int r){
+        this.radius = r;
     }
 
     public void setCenter(Point p){

@@ -11,10 +11,11 @@ public class ComboStrategy implements DrawStrategy {
         if (r.nextInt(2) == 1){
             Circle c = new Circle(p);
             c.setColor(Color.BLUE);
+            c.setRadius(10);
             return c;
         }
 
-        Square s = new Square(p, 5);
+        Square s = new Square(p, 20);
         s.setColor(Color.RED);
         return s;
     }
@@ -23,6 +24,13 @@ public class ComboStrategy implements DrawStrategy {
     public Shape generateDifferent(Point p) {
         Circle c = new Circle(p);
         c.setColor(Color.RED);
+        c.setRadius(10);
         return c;
+    }
+
+
+    @Override
+    public String getDifferentName() {
+        return "red circle";
     }
 }

@@ -5,6 +5,7 @@ public class ColorStrategy implements DrawStrategy{
     public Shape generateNormal(Point p) {
         Circle c = new Circle(p);
         c.setColor(Color.BLUE);
+        c.setRadius(10);
         return c;
     }
 
@@ -12,6 +13,11 @@ public class ColorStrategy implements DrawStrategy{
     public Shape generateDifferent(Point p) {
         Circle c = new Circle(p);
         c.setColor(Color.RED);
+        c.setRadius(10);
         return c;
+    }
+    @Override
+    public String getDifferentName() {
+        return "red circle";
     }
 }
