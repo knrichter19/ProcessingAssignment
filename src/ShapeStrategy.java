@@ -26,6 +26,11 @@ public class ShapeStrategy implements DrawStrategy{
         return "red square";
     }
 
+    @Override
+    public String getStrategyName() {
+        return "Shape";
+    }
+
     public void calculateAndSetSize(int numStimuli, int screenArea){
         double approxWidth = Math.sqrt((double)screenArea/numStimuli) / 2;
         width = approxWidth;

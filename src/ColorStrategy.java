@@ -26,6 +26,11 @@ public class ColorStrategy implements DrawStrategy{
         return "red circle";
     }
 
+    @Override
+    public String getStrategyName() {
+        return "Color";
+    }
+
     public void calculateAndSetSize(int numStimuli, int screenArea){
         double approxArea = Math.sqrt((double)screenArea/numStimuli) / 2;
         radius = (int) Math.floor(approxArea/2);

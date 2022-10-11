@@ -6,4 +6,6 @@ public interface DrawStrategy {
     Shape generateDifferent(Point p);
 
     String getDifferentName();
+
+    String getStrategyName();
 }

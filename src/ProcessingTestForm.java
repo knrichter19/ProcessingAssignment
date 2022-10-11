@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class ProcessingTestForm extends JFrame {
     protected JPanel formPanel;
@@ -34,6 +37,7 @@ public class ProcessingTestForm extends JFrame {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                startButton.setEnabled(false);
                 runTest(numMilis);
 
             }
@@ -71,6 +75,7 @@ public class ProcessingTestForm extends JFrame {
                 int input = JOptionPane.showConfirmDialog(null,
                         "Was there a " + strategy.getDifferentName(), "Select an Option...", JOptionPane.YES_NO_OPTION);
                 addToScore(((difExists && input == JOptionPane.YES_OPTION) || (!difExists && input == JOptionPane.NO_OPTION)));
+                startButton.setEnabled(true);
             }
         });
 
@@ -97,10 +102,23 @@ public class ProcessingTestForm extends JFrame {
 
     private void recordWin(){
         System.out.println("you win");
+        try {
+            String headers = "";
+            String data = subjectName + "," + strategy.getStrategyName() + "," + numStimuli + "," + numMilis + "\n";
+            if (new File(writeFile).isFile()){
+                headers = "Subject Name, Strategy, Num Stimuli, Reaction Time\n"; //only nead headers for new file
+                // todo: get headers to write properly
+            }
+            FileWriter fw = new FileWriter(writeFile, true);
+            fw.write(headers + data);
+            fw.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void showResults(){
-
+        JOptionPane.showConfirmDialog(this, "Your reaction time is: " + numMilis + "ms");
     }
 
     public DrawStrategy getStrategy() {

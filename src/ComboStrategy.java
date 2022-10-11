@@ -36,6 +36,11 @@ public class ComboStrategy implements DrawStrategy {
         return "red circle";
     }
 
+    @Override
+    public String getStrategyName() {
+        return "Combo";
+    }
+
     public void calculateAndSetSize(int numStimuli, int screenArea){
         width = Math.sqrt((double)screenArea/numStimuli) / 2;
     }
