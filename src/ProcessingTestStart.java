@@ -25,12 +25,12 @@ public class ProcessingTestStart {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if ((int)numSpinner.getValue() <= 0){
-                    // add error popup
+                    JOptionPane.showMessageDialog(formPanel, "Please choose a positive number of stimuli");
                     return;
                 }
 
                 if (nameField.getText().length() == 0){
-                    // add error popup
+                    JOptionPane.showMessageDialog(formPanel, "Please enter your name");
                     return;
                 }
                 ProcessingTestForm pt = new ProcessingTestForm();
@@ -39,6 +39,7 @@ public class ProcessingTestStart {
                     case "Shape" -> pt.setStrategy(new ShapeStrategy(numStimuli, (500 * 500)));
                     case "Color" -> pt.setStrategy(new ColorStrategy(numStimuli, (500 * 500)));
                     case "Combo" -> pt.setStrategy(new ComboStrategy(numStimuli, (500 * 500)));
+                    case "Orientation" -> pt.setStrategy(new OrientationStrategy(numStimuli, (500*500)));
                 }
 
                 pt.setNumStimuli((int)numSpinner.getValue());

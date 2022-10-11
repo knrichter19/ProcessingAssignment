@@ -55,6 +55,7 @@
             <item value="Shape"/>
             <item value="Color"/>
             <item value="Combo"/>
+            <item value="Orientation"/>
           </model>
         </properties>
       </component>
