@@ -60,15 +60,12 @@ public class ProcessingTestForm extends JFrame {
     // returns true if correctly answered, false if not
     private void runTest(int numMilis){
         testPanel.setTypeStrategy(strategy);
-        System.out.println("Running test");
         testPanel.start();
-        System.out.println("Here");
 
 
         timer = new Timer(numMilis, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("in timer");
                 testPanel.stop();
                 timer.stop();
                 boolean difExists = testPanel.difExists();
@@ -84,7 +81,6 @@ public class ProcessingTestForm extends JFrame {
     }
 
     private void addToScore(boolean correct){
-        System.out.println("Adding to score");
         if (correct){
             correctStreak++;
         } else {
