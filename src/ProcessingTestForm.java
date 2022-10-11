@@ -103,11 +103,10 @@ public class ProcessingTestForm extends JFrame {
     private void recordWin(){
         System.out.println("you win");
         try {
-            String headers = "";
+            String headers = "Subject Name,Strategy,Num Stimuli,Reaction Time\n";
             String data = subjectName + "," + strategy.getStrategyName() + "," + numStimuli + "," + numMilis + "\n";
             if (new File(writeFile).isFile()){
-                headers = "Subject Name, Strategy, Num Stimuli, Reaction Time\n"; //only nead headers for new file
-                // todo: get headers to write properly
+                headers = ""; //only nead headers for new file
             }
             FileWriter fw = new FileWriter(writeFile, true);
             fw.write(headers + data);
@@ -118,7 +117,8 @@ public class ProcessingTestForm extends JFrame {
     }
 
     private void showResults(){
-        JOptionPane.showConfirmDialog(this, "Your reaction time is: " + numMilis + "ms");
+        JOptionPane.showMessageDialog(this, "Your reaction time is: " + numMilis + "ms");
+        frame.dispose();
     }
 
     public DrawStrategy getStrategy() {

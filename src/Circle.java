@@ -20,6 +20,8 @@ public class Circle implements Shape {
         this.radius = r;
     }
 
+    public int getRadius(){ return this.radius; }
+
     public void setCenter(Point p){
         x = p.x;
         y = p.y;

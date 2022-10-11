@@ -8,4 +8,8 @@ public interface DrawStrategy {
     String getDifferentName();
 
     String getStrategyName();
+
+    void calculateAndSetSize(int numStimuli, int screenArea);
+
+    double getWidth();
 }

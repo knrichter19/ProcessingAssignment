@@ -35,4 +35,9 @@ public class ShapeStrategy implements DrawStrategy{
         double approxWidth = Math.sqrt((double)screenArea/numStimuli) / 2;
         width = approxWidth;
     }
+
+    @Override
+    public double getWidth() {
+        return width;
+    }
 }

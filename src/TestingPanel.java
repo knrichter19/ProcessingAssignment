@@ -58,8 +58,9 @@ public class TestingPanel extends JPanel {
     }
 
     private Point getPointInBounds(){
-        int x = ran.nextInt(width - border*2) + border;
-        int y = ran.nextInt(height - border*2) + border;
+        int shapeWidth = (int)Math.ceil(typeStrategy.getWidth());
+        int x = ran.nextInt(width - shapeWidth*2) + shapeWidth;
+        int y = ran.nextInt(height - shapeWidth*2) + shapeWidth;
         return new Point(x,y);
     }
 

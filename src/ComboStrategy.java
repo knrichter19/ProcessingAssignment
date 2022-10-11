@@ -44,4 +44,9 @@ public class ComboStrategy implements DrawStrategy {
     public void calculateAndSetSize(int numStimuli, int screenArea){
         width = Math.sqrt((double)screenArea/numStimuli) / 2;
     }
+
+    @Override
+    public double getWidth() {
+        return width;
+    }
 }

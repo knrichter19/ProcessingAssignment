@@ -44,6 +44,7 @@ public class ProcessingTestStart {
                 pt.setNumStimuli((int)numSpinner.getValue());
                 pt.setSubjectName(nameField.getText());
                 JFrame frame = new JFrame("ProcessingTestForm");
+                pt.setFrame(frame);
                 frame.setContentPane(pt.formPanel);
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();

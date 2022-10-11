@@ -35,4 +35,9 @@ public class ColorStrategy implements DrawStrategy{
         double approxArea = Math.sqrt((double)screenArea/numStimuli) / 2;
         radius = (int) Math.floor(approxArea/2);
     }
+
+    @Override
+    public double getWidth() {
+        return (double)radius*2;
+    }
 }
