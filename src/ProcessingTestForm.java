@@ -27,7 +27,10 @@ public class ProcessingTestForm extends JFrame {
     private int numMilis;
     private int correctStreak;
 
+    private int screenWidth;
+
     public ProcessingTestForm(){
+        screenWidth = 1000;
         numMilis = 150;
         correctStreak = 0;
         writeFile = "ProcessingResults.txt";
@@ -44,7 +47,7 @@ public class ProcessingTestForm extends JFrame {
         });
 
         testPanel = new TestingPanel();
-        displayPanel.setPreferredSize(new Dimension(500,500));
+        displayPanel.setPreferredSize(new Dimension(screenWidth,screenWidth));
         displayPanel.add(testPanel);
     }
 

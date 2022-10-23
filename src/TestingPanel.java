@@ -19,8 +19,8 @@ public class TestingPanel extends JPanel {
 
     public TestingPanel(){
         setBackground(Color.lightGray);
-        width = 500;
-        height = 500;
+        width = 1000;
+        height = 1000;
         setPreferredSize(new Dimension(width, height));
         ran = new Random();
         shapes = new ArrayList<>();
